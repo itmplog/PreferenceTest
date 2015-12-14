@@ -1,5 +1,6 @@
 package top.itmp.preferencetest;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu:
                 break;
             case Menu.FIRST + 1:
-                Toast.makeText(this, "heh 被电击", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, PreferenceTest.class);
+                startActivity(intent);
                 break;
             case R.id.menu1:
                 break;
