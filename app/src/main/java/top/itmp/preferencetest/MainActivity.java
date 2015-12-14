@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        menu.add(Menu.NONE, Menu.FIRST+1, 0, "heh").setIcon(R.mipmap.ic_launcher);
+        menu.add(Menu.NONE, Menu.FIRST+1, 100, R.string.settings).setIcon(R.mipmap.ic_launcher);
+        // 手动添加的Menu， 更新一些操作
         //return super.onCreateOptionsMenu(menu);
         return true;
     }
