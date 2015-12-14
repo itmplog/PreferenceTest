@@ -9,7 +9,7 @@ import top.itmp.preferencetest.R;
 /**
  * Created by hz on 2015/12/14.
  */
-public class PreferenceTest extends PreferenceActivity {
+public class PreferenceTest extends AppCompatPreferenceActivity{//PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
