@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.menu:
+            case R.id.preferenceFragment:
+                Intent intentFrag = new Intent(MainActivity.this, PreferenceFragmentTest.class);
+                startActivity(intentFrag);
                 break;
             case Menu.FIRST + 1:
                 Intent intent = new Intent(MainActivity.this, PreferenceTest.class);

@@ -3,6 +3,7 @@ package top.itmp.preferencetest;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
+
 import top.itmp.preferencetest.R;
 
 /**
@@ -12,6 +13,8 @@ public class PreferenceTest extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+      //  AppCompatDelegate.create(this, null).getSupportActionBar().setTitle(getString(R.string.settings));
+
         addPreferencesFromResource(R.xml.preference);
     }
 }
