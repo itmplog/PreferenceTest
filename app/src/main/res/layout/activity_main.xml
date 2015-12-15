@@ -9,5 +9,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="top.itmp.preferencetest.MainActivity">
 
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container">
 
+    </android.support.v4.view.ViewPager>
 </RelativeLayout>

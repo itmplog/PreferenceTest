@@ -1,11 +1,15 @@
 package top.itmp.preferencetest;
 
 import android.app.ActionBar;
+import android.app.Fragment;
 import android.content.Intent;
+import android.preference.PreferenceFragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,9 +18,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        /*RelativeLayout relativeLayout = new RelativeLayout(this);
+       relativeLayout.setId(10111001);
+        setContentView(relativeLayout);*/
        // ActionBar actionBar = getActionBar();
        //actionBar.setDisplayShowTitleEnabled(false);
+       // final ViewPager viewPager = (ViewPager)findViewById(R.id.container);
+        getFragmentManager().beginTransaction().add(R.id.container, new PreferenceFragmentTest.PreferenceFragment0()).commit();
+
     }
 
     @Override
