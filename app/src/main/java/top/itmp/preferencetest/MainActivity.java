@@ -40,11 +40,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, PreferenceTest.class);
                 startActivity(intent);
                 break;
-            case R.id.menu1:
-                break;
-            case R.id.menu2:
-                break;
-            case R.id.menu3:
+            case R.id.one:
+            case R.id.two:
+            case R.id.three:
                 break;
         }
         return super.onOptionsItemSelected(item);

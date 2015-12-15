@@ -9,18 +9,18 @@
         android:orderInCategory="100"
     />
     <item
-        android:id="@+id/menu1"
-        android:title="menu1"
+        android:id="@+id/one"
+        android:title="One"
         android:orderInCategory="100"
         />
     <item
-        android:id="@+id/menu2"
-        android:title="menu2"
+        android:id="@+id/two"
+        android:title="Two"
         android:orderInCategory="100"
         />
     <item
-        android:id="@+id/menu3"
-        android:title="menu3"
+        android:id="@+id/three"
+        android:title="Three"
         android:orderInCategory="100"
         />
 </menu>
