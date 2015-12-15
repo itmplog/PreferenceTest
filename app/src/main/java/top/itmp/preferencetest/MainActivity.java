@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
        // ActionBar actionBar = getActionBar();
        //actionBar.setDisplayShowTitleEnabled(false);
        // final ViewPager viewPager = (ViewPager)findViewById(R.id.container);
-        getFragmentManager().beginTransaction().add(R.id.container, new PreferenceFragmentTest.PreferenceFragment0()).commit();
+        getFragmentManager().beginTransaction().add(android.R.id.content, new PreferenceFragmentTest.PreferenceFragment0()).commit();
 
     }
 

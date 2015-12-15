@@ -26,12 +26,12 @@ public class PreferenceFragmentTest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FrameLayout frameLayout = new FrameLayout(this);
-        frameLayout.setId(CONTENT_VIEW_ID);
-        setContentView(frameLayout);
+        //FrameLayout frameLayout = new FrameLayout(this);
+       // frameLayout.setId(CONTENT_VIEW_ID);
+       // setContentView(R.layout.activity_main);
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(frameLayout.getId(), new PreferenceFragment0());
+        fragmentTransaction.add(android.R.id.content, new PreferenceFragment0());
         fragmentTransaction.commit();
 
 
