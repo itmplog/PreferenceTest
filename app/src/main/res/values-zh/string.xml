@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="language">语言</string>
+    <string name="language_set">语言设置</string>
+    <string-array name="country">
+        <item>中国</item>
+        <item>美国</item>
+        <item>日本</item>
+        <item>香港</item>
+    </string-array>
+
+</resources>

@@ -14,4 +14,19 @@
             android:data="https://www.google.com" />
     </Preference>
 </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/language"
+        android:summary="@string/language_set"
+        android:key="@string/language">
+        <ListPreference
+            android:title="@string/language"
+            android:summary="@string/language_set"
+            android:key="@string/language"
+            android:defaultValue=""
+            android:entries="@array/country"
+            android:entryValues="@array/countryValues"
+            />
+
+
+    </PreferenceCategory>
 </PreferenceScreen>
