@@ -7,7 +7,19 @@
 
     <string name="wifi">WI-FI</string>
     <string name="wifi_set">Wifi Setting</string>
+    <string name="bluetooth">bluetooth</string>
 
+    <string name="about">About</string>
+    <string-array name="listArray">
+        <item>TXT</item>
+        <item>DOC</item>
+        <item>PDF</item>
+    </string-array>
+    <string-array name="listValues">
+        <item>txt</item>
+        <item>doc</item>
+        <item>pdf</item>
+    </string-array>
     <string name="language">Language</string>
     <string name="language_set">Language Settings</string>
 
