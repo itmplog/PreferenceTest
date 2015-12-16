@@ -12,7 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,8 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager = (ViewPager)findViewById(R.id.container);
         fragmentPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
-        viewPager.setAdapter(fragmentPagerAdapter);
 
+        viewPager.setAdapter(fragmentPagerAdapter);
+        viewPager.setOffscreenPageLimit(3);
 
        // getFragmentManager().beginTransaction().add(android.R.id.content, new PreferenceFragmentTest.PreferenceFragment0()).commit();
 
