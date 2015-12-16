@@ -1,19 +1,22 @@
 <resources>
-    <string name="app_name">PreferenceTest</string>
+    <string name="app_name">Preferences</string>
     <string name="settings">Settings</string>
+
     <string name="wireless_network">Wireless Networks</string>
+    <string name="wireless_network_key">wireless_network_key</string>
+
+    <string name="wifi">WI-FI</string>
+    <string name="wifi_set">Wifi Setting</string>
+
     <string name="language">Language</string>
-    <string name="language_set">Language Set</string>
+    <string name="language_set">Language Settings</string>
+
     <string-array name="country">
-        <item>China</item>
-        <item>United States</item>
-        <item>Japan</item>
-        <item>Hong Kong</item>
+        <item>简体中文</item>
+        <item>English</item>
     </string-array>
     <string-array name="countryValues">
-        <item>CN</item>
-        <item>US</item>
-        <item>JP</item>
-        <item>HK</item>
+        <item>zh</item>
+        <item>en</item>
     </string-array>
 </resources>

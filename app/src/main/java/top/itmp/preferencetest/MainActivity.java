@@ -17,7 +17,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static Integer[] preferences = {R.xml.preference, R.xml.preferencefrag, R.xml.preferencefrag};
+    private static Integer[] preferences = {R.xml.pfrag0, R.xml.preference, R.xml.preferencefrag};
     private ViewPager viewPager = null;
     private FragmentPagerAdapter fragmentPagerAdapter = null;
     @Override
