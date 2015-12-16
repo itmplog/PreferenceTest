@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    /*
     public static class PlaceholderFragment extends PreferenceFragment {
         private static final String ARG_SECTION_NUMBER = "section_number";
         private  int i= 0;
@@ -94,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+*/
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -102,10 +104,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public PreferenceFragment getItem(int position) {
+        public PreferenceFragment getItem(final int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+           // return PlaceholderFragment.newInstance(position + 1);
+            return new PreferenceFragment() {
+                @Override
+                public void onCreate(Bundle savedInstanceState) {
+                    super.onCreate(savedInstanceState);
+                    addPreferencesFromResource(preferences[position]);
+                }
+            };
         }
 
         @Override
