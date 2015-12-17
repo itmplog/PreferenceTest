@@ -20,6 +20,11 @@ public class PreferenceTest extends AppCompatPreferenceActivity{//PreferenceActi
     }
 
     @Override
+    public void setTheme(int resid) {
+        super.setTheme(MainActivity.get_theme(this));
+    }
+
+    @Override
     public void onBackPressed() {
         super.onBackPressed();
         NavUtils.navigateUpFromSameTask(this);

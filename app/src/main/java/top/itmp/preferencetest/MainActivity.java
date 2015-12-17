@@ -4,6 +4,7 @@ package top.itmp.preferencetest;
 
 
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -53,26 +54,28 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void setTheme(int resid) {
-        String theme =
-        PreferenceManager.getDefaultSharedPreferences(this).getString("theme", null);
-        if(theme.equals(null)){
-            theme = getTheme().toString();
-        }
-        switch (theme){
-            case "dark":
-                setTheme(android.support.v7.appcompat.R.style.Theme_AppCompat);
-                break;
-            case "light":
-                setTheme(android.support.v7.appcompat.R.style.Theme_AppCompat_Light);
-                break;
-            default:
-                break;
-        }
-
-
-
+        super.setTheme(get_theme(this));
     }
 
+    public static int get_theme(Context context){
+        String theme =
+                PreferenceManager.getDefaultSharedPreferences(context).getString("theme", null);
+        if(theme.equals(null)){
+            theme = context.getTheme().toString();
+        }
+        switch (theme) {
+            case "dark":
+                return R.style.DarkTheme;
+
+            case "light":
+                return R.style.LightTheme;
+
+            default:
+                return R.style.DarkTheme;
+
+        }
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -38,6 +38,10 @@ public class PreferenceFragmentTest extends AppCompatActivity {
     }
 
 
+    @Override
+    public void setTheme(int resid) {
+        super.setTheme(MainActivity.get_theme(this));
+    }
 
     public static class PreferenceFragment0 extends PreferenceFragment {
         @Override
