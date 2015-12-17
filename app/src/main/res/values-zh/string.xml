@@ -1,12 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">设置demo</string>
+    <string name="settings">设置</string>
+
+    <string name="wireless_network">无线网络</string>
+
     <string name="language">语言</string>
     <string name="language_set">语言设置</string>
-    <string-array name="country">
-        <item>中国</item>
-        <item>美国</item>
-        <item>日本</item>
-        <item>香港</item>
-    </string-array>
 
+    <string name="wifi">WIFI</string>
+    <string name="wifi_set">无线设置</string>
+    <string name="bluetooth">蓝牙</string>
+
+    <string name="about">关于</string>
+
+    <string name="theme">主题</string>
+    <string name="theme_summary">主题选择</string>
+    <string-array name="theme_entries">
+        <item>深色主题</item>
+        <item>浅色主题</item>
+    </string-array>
+    <string name="menu0">页面1</string>
+    <string name="menu1">页面2</string>
+    <string name="menu2">页面3</string>
 </resources>

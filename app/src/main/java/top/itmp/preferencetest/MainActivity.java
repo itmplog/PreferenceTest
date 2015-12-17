@@ -6,16 +6,21 @@ package top.itmp.preferencetest;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.Snackbar;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -41,9 +46,33 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(3);
 
 
+
        // getFragmentManager().beginTransaction().add(android.R.id.content, new PreferenceFragmentTest.PreferenceFragment0()).commit();
 
     }
+
+    @Override
+    public void setTheme(int resid) {
+        String theme =
+        PreferenceManager.getDefaultSharedPreferences(this).getString("theme", null);
+        if(theme.equals(null)){
+            theme = getTheme().toString();
+        }
+        switch (theme){
+            case "dark":
+                setTheme(android.support.v7.appcompat.R.style.Theme_AppCompat);
+                break;
+            case "light":
+                setTheme(android.support.v7.appcompat.R.style.Theme_AppCompat_Light);
+                break;
+            default:
+                break;
+        }
+
+
+
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -123,6 +152,42 @@ public class MainActivity extends AppCompatActivity {
                 public void onCreate(Bundle savedInstanceState) {
                     super.onCreate(savedInstanceState);
                     addPreferencesFromResource(preferences[position]);
+
+
+
+                    String language ;
+                    if((language = getPreferenceManager().getSharedPreferences().getString("language", null)) == null){
+                        language = Locale.getDefault().getLanguage();
+                    }
+
+                        Locale locale = new Locale(language);
+                        locale.setDefault(locale);
+                        Configuration conf = new Configuration();
+                        conf.locale = locale;
+                        getResources().updateConfiguration(conf, getResources().getDisplayMetrics());
+
+                  /*  String theme = null;
+                    if((theme = getPreferenceManager().getSharedPreferences().getString("theme", null)) == null){
+                        theme = getTheme().toString();
+                        Log.d("get theme", theme);
+                    }
+                        switch(theme){
+                            case "dark":
+                                getActivity().setTheme(android.support.v7.appcompat.R.style.Theme_AppCompat);
+                                Log.d("dark theme", theme);
+                                break;
+                            case "light":
+                                getActivity().setTheme(android.support.v7.appcompat.R.style.Theme_AppCompat_Light);
+                                Log.d("light theme", theme);
+                                break;
+                            default:
+                                getActivity().setTheme(android.support.v7.appcompat.R.style.Theme_AppCompat);
+                                break;
+                        }
+
+*/
+
+
                 }
 
                 @Override
@@ -137,11 +202,19 @@ public class MainActivity extends AppCompatActivity {
                     getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
                 }
 
+
                 SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
                     @Override
                     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
                        // Toast.makeText(getApplicationContext(), key + "  " + sharedPreferences.getString(key, "") ,Toast.LENGTH_SHORT ).show();
-                        Snackbar.make(getView(), key + " " + sharedPreferences.getString(key, ""), Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+
+                        if(key.equals(getString(R.string.language))){
+
+                            Snackbar.make(getView(), "Language is set to " + sharedPreferences.getString(key, ""), Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+
+                        } else {
+                          //  Snackbar.make(getView(), key + " " + sharedPreferences.getString(key, ""), Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                        }
 
                     }
                 };

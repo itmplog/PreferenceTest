@@ -16,17 +16,25 @@
 </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/language"
-        android:summary="@string/language_set"
-        android:key="@string/language">
+        android:summary="@string/language_set">
         <ListPreference
             android:title="@string/language"
             android:summary="@string/language_set"
-            android:key="@string/language"
+            android:key="language"
             android:defaultValue=""
             android:entries="@array/country"
             android:entryValues="@array/countryValues"
             />
-
-
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/theme" android:summary="@string/theme_summary">
+        <ListPreference
+            android:title="@string/theme"
+            android:summary="@string/theme_summary"
+            android:key="theme"
+            android:dialogIcon="@mipmap/ic_launcher"
+            android:dialogTitle="@string/theme_summary"
+            android:entries="@array/theme_entries"
+            android:entryValues="@array/theme_values">
+        </ListPreference>
     </PreferenceCategory>
 </PreferenceScreen>

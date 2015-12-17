@@ -2,12 +2,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
         android:title="@string/wireless_network"
-        android:key="@string/wireless_network_key">
+        android:key="wireless_key">
         <Preference
             android:title="@string/wifi"
             android:summary="@string/wifi_set"
             android:icon="@drawable/ic_wifi_signal_4_teal"
-            android:key="@string/wifi">
+            android:key="wifi">
             <intent
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.android.settings"
@@ -18,7 +18,7 @@
             android:title="@string/bluetooth"
             android:summary="@string/bluetooth"
             android:icon="@drawable/ic_settings_bluetooth2"
-            android:key="@string/bluetooth">
+            android:key="bluetooth">
             <intent
                 android:action="android.intent.action.MAIN"
                 android:targetPackage="com.android.settings"
@@ -26,8 +26,8 @@
         </Preference>
     </PreferenceCategory>
     <PreferenceCategory
-        android:title="About"
-        android:key="@string/about">
+        android:title="@string/about"
+        android:key="about">
     <EditTextPreference android:title="Your Name"
         android:key="username"
         android:summary="Please provide your username"></EditTextPreference>
