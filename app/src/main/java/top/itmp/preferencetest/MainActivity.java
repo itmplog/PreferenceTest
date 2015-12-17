@@ -195,8 +195,8 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onPause() {
-                    super.onPause();
                     getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+                    super.onPause();
                 }
 
                 @Override
