@@ -63,9 +63,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.one:
-            case R.id.two:
-            case R.id.three:
+                viewPager.setCurrentItem(0);
                 break;
+            case R.id.two:
+                viewPager.setCurrentItem(1);
+                break;
+            case R.id.three:
+                viewPager.setCurrentItem(2);
+                break;
+
         }
         return super.onOptionsItemSelected(item);
     }
