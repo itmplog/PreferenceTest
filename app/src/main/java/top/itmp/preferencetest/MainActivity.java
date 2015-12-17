@@ -5,14 +5,17 @@ package top.itmp.preferencetest;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.design.widget.Snackbar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setAdapter(fragmentPagerAdapter);
         viewPager.setOffscreenPageLimit(3);
+
 
        // getFragmentManager().beginTransaction().add(android.R.id.content, new PreferenceFragmentTest.PreferenceFragment0()).commit();
 
@@ -120,6 +124,27 @@ public class MainActivity extends AppCompatActivity {
                     super.onCreate(savedInstanceState);
                     addPreferencesFromResource(preferences[position]);
                 }
+
+                @Override
+                public void onPause() {
+                    super.onPause();
+                    getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+                }
+
+                @Override
+                public void onResume() {
+                    super.onResume();
+                    getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+                }
+
+                SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+                    @Override
+                    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                       // Toast.makeText(getApplicationContext(), key + "  " + sharedPreferences.getString(key, "") ,Toast.LENGTH_SHORT ).show();
+                        Snackbar.make(getView(), key + " " + sharedPreferences.getString(key, ""), Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+
+                    }
+                };
             };
         }
 
