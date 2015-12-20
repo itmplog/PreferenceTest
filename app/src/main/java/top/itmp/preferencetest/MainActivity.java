@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(fragmentPagerAdapter);
         viewPager.setOffscreenPageLimit(3);
 
+        SharedPreferences sharedPreferences = getPreferences(MODE_WORLD_READABLE);//PreferenceManager.getDefaultSharedPreferences(this);
+        if(sharedPreferences.getString("theme", null) != null)
+            sharedPreferences.edit().putString("theme", "fuck").commit();
 
 
        // getFragmentManager().beginTransaction().add(android.R.id.content, new PreferenceFragmentTest.PreferenceFragment0()).commit();
