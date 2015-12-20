@@ -4,7 +4,7 @@
     <item
         android:id="@+id/preferenceFragment"
         app:showAsAction="always"
-        android:icon="@android:drawable/ic_menu_directions"
+        android:icon="@drawable/ic_settings_bluetooth2"
         android:title="PreferenceFragment"
         android:orderInCategory="100"
     />
