@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         if(theme.equals(null)){
             theme = context.getTheme().toString();
         }
+
         switch (theme) {
             case "dark":
                 return R.style.DarkTheme;
@@ -162,15 +163,16 @@ public class MainActivity extends AppCompatActivity {
 
 
                     String language ;
-                    if((language = getPreferenceManager().getSharedPreferences().getString("language", null)) == null){
+                    if((language = getPreferenceManager().getSharedPreferences().getString("language", null)) == null) {
                         language = Locale.getDefault().getLanguage();
                     }
-
                         Locale locale = new Locale(language);
                         locale.setDefault(locale);
                         Configuration conf = new Configuration();
                         conf.locale = locale;
                         getResources().updateConfiguration(conf, getResources().getDisplayMetrics());
+
+
 
                   /*  String theme = null;
                     if((theme = getPreferenceManager().getSharedPreferences().getString("theme", null)) == null){
@@ -212,16 +214,23 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
                     @Override
                     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                       // Toast.makeText(getApplicationContext(), key + "  " + sharedPreferences.getString(key, "") ,Toast.LENGTH_SHORT ).show();
+                        // Toast.makeText(getApplicationContext(), key + "  " + sharedPreferences.getString(key, "") ,Toast.LENGTH_SHORT ).show();
 
-                        if(key.equals(getString(R.string.language))){
-
-                            Snackbar.make(getView(), "Language is set to " + sharedPreferences.getString(key, ""), Snackbar.LENGTH_SHORT).setAction("Action", null).show();
-
-                        } else {
-                          //  Snackbar.make(getView(), key + " " + sharedPreferences.getString(key, ""), Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                        switch (key) {
+                            case "language":
+                                Snackbar.make(getView(), "Language is set to " + sharedPreferences.getString(key, ""), Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                                getActivity().finish();
+                                Intent intent = new Intent(getActivity(), getActivity().getClass());
+                                startActivity(intent);
+                                break;
+                            case "theme":
+                                getActivity().finish();
+                                Intent intent1 = new Intent(getActivity(), getActivity().getClass());
+                                startActivity(intent1);
+                                break;
+                            default:
+                                break;
                         }
-
                     }
                 };
             };
