@@ -1,8 +1,5 @@
 package top.itmp.preferencetest;
 
-
-
-
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
@@ -13,14 +10,14 @@ import android.preference.PreferenceManager;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.design.widget.Snackbar;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -164,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         public PreferenceFragment getItem(final int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-           // return PlaceholderFragment.newInstance(position + 1);
+            // return PlaceholderFragment.newInstance(position + 1);
             return new PreferenceFragment() {
                 @Override
                 public void onCreate(Bundle savedInstanceState) {
