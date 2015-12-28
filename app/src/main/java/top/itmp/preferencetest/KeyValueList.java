@@ -10,4 +10,8 @@ public class KeyValueList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_key_value_list);
     }
+    @Override
+    public void setTheme(int resid) {
+        super.setTheme(MainActivity.get_theme(this));
+    }
 }
