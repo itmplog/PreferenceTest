@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceCategory
+    android:title="Sample Set 0"
+    android:summary="Set Page 0">
+    <PreferenceScreen
+        android:title="Sample 0"
+        android:summary="Advanced Sample 0">
+        <PreferenceCategory
+            android:title="呵呵哒"
+            android:summary="呵呵哒....">
+            <SwitchPreference
+                android:title="like"
+                android:summary="love it or not?"
+                android:key="like"/>
+        </PreferenceCategory>
+    </PreferenceScreen>
+</PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Sample Set 1"
+        android:summary="Set Page 1">
+        <PreferenceScreen
+            android:title="Sample 1"
+            android:summary="Advanced Sample 1">
+            <PreferenceCategory android:title="呵呵哒"
+                android:summary="呵呵哒....">
+                <Preference
+                    android:title="KeyValues"
+                    android:summary="Keys with Values"
+                    android:icon="@mipmap/ic_launcher">
+                    <intent
+                        android:action="android.intent.action.MAIN"
+                        android:targetPackage="top.itmp.preferencetest"
+                        android:targetClass="top.itmp.preferencetest.KeyValueList"
+                        />
+                </Preference>
+            </PreferenceCategory>
+        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>

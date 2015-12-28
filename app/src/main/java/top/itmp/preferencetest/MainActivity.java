@@ -17,12 +17,11 @@ import android.view.MenuItem;
 
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private static Integer[] preferences = {R.xml.pfrag0, R.xml.preference, R.xml.preferencefrag};
+    private static Integer[] preferences = {R.xml.pfrag0, R.xml.preference, R.xml.frag3};
     private ViewPager viewPager = null;
     private FragmentPagerAdapter fragmentPagerAdapter = null;
     @Override
