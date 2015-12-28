@@ -15,10 +15,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.Snackbar;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.Locale;
+import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -56,8 +58,11 @@ public class MainActivity extends AppCompatActivity {
         Configuration conf = new Configuration();
         conf.locale = locale;
         getResources().updateConfiguration(conf, getResources().getDisplayMetrics());
+        for (Map.Entry<String,?> entry : PreferenceManager.getDefaultSharedPreferences(this).getAll().entrySet()) {
+            System.out.println("key = " + entry.getKey() + " and value = " + entry.getValue());
 
-       // getFragmentManager().beginTransaction().add(android.R.id.content, new PreferenceFragmentTest.PreferenceFragment0()).commit();
+        }
+                        // getFragmentManager().beginTransaction().add(android.R.id.content, new PreferenceFragmentTest.PreferenceFragment0()).commit();
 
     }
 
