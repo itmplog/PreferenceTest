@@ -26,6 +26,20 @@
         <item>doc</item>
         <item>pdf</item>
     </string-array>
+
+    <string name="multiselect">Multi Select</string>
+    <string-array name="multis">
+        <item>Linux</item>
+        <item>Mac OSX</item>
+        <item>Unix</item>
+        <item>Windows</item>
+    </string-array>
+    <string-array name="multivalues">
+        <item>linux</item>
+        <item>osx</item>
+        <item>unix</item>
+        <item>windows</item>
+    </string-array>
     <string name="language">Language</string>
     <string name="language_set">Language Settings</string>
 

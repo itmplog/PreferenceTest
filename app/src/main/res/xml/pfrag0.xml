@@ -42,8 +42,13 @@
         android:title="@string/downloads"
         android:summary="Select the kind of data that you would like to download"
         android:key="downloadType"
-        android:defaultValue="txt"
+        android:defaultValue="1"
         android:entries="@array/listArray"
         android:entryValues="@array/listValues" />
+        <MultiSelectListPreference
+            android:title="@string/multiselect"
+            android:key="multiselect"
+            android:entries="@array/multis"
+            android:entryValues="@array/multivalues"/>
     </PreferenceCategory>
 </PreferenceScreen>
