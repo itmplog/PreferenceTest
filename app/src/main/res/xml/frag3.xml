@@ -30,7 +30,7 @@
                     android:summary="Keys with Values"
                     android:icon="@mipmap/ic_launcher">
                     <intent
-                        android:action="android.intent.action.MAIN"
+                        android:action="android.intent.action.VIEW"
                         android:targetPackage="top.itmp.preferencetest"
                         android:targetClass="top.itmp.preferencetest.KeyValueList"
                         />

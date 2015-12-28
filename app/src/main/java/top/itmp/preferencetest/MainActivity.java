@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         getResources().updateConfiguration(conf, getResources().getDisplayMetrics());
         for (Map.Entry<String,?> entry : PreferenceManager.getDefaultSharedPreferences(this).getAll().entrySet()) {
             System.out.println("key = " + entry.getKey() + " and value = " + entry.getValue());
-
         }
                         // getFragmentManager().beginTransaction().add(android.R.id.content, new PreferenceFragmentTest.PreferenceFragment0()).commit();
 

@@ -33,8 +33,6 @@ public class PreferenceFragmentTest extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(android.R.id.content, new PreferenceFragment0());
         fragmentTransaction.commit();
-
-
     }
 
 
