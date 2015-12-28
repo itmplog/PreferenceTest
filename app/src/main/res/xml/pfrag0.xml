@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
-        android:title="@string/wireless_network"
-        android:key="wireless_key">
+        android:title="@string/wireless_network">
         <Preference
             android:title="@string/wifi"
             android:summary="@string/wifi_set"
@@ -26,22 +25,24 @@
         </Preference>
     </PreferenceCategory>
     <PreferenceCategory
-        android:title="@string/about"
-        android:key="about">
-    <EditTextPreference android:title="Your Name"
+        android:title="@string/about">
+    <EditTextPreference android:title="@string/yourname"
         android:key="username"
-        android:summary="Please provide your username"></EditTextPreference>
-    <CheckBoxPreference android:title="Application Updates"
+        android:summary="@string/providerName"/>
+    <CheckBoxPreference
+        android:title="@string/appupdate"
         android:defaultValue="false"
         android:summary="This option if selected will allow the application to check for latest versions."
         android:key="applicationUpdates" />
-        <SwitchPreference android:title="@string/True"
+        <SwitchPreference
+            android:title="@string/True"
             android:key="boolean"
             android:summary="true or false"/>
-    <ListPreference     android:title="Download Details"
+    <ListPreference
+        android:title="@string/downloads"
         android:summary="Select the kind of data that you would like to download"
         android:key="downloadType"
-        android:defaultValue="1"
+        android:defaultValue="txt"
         android:entries="@array/listArray"
         android:entryValues="@array/listValues" />
     </PreferenceCategory>

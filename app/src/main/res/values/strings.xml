@@ -10,6 +10,12 @@
     <string name="bluetooth">bluetooth</string>
 
     <string name="about">About</string>
+    <string name="yourname">Your Name</string>
+    <string name="providerName">Pls provide your name</string>
+
+    <string name="appupdate">Application Updates</string>
+    <string name="downloads">Download Details</string>
+
     <string-array name="listArray">
         <item>TXT</item>
         <item>DOC</item>

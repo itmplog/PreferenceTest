@@ -12,7 +12,10 @@
     <string name="bluetooth">蓝牙</string>
 
     <string name="about">关于</string>
-
+    <string name="yourname">你的名字</string>
+    <string name="providerName">请提供你的名字</string>
+    <string name="appupdate">应用更新</string>
+    <string name="downloads">下载设置</string>
     <string name="theme">主题</string>
     <string name="theme_summary">主题选择</string>
     <string-array name="theme_entries">
