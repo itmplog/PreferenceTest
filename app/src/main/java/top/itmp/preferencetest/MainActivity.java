@@ -47,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
         if(sharedPreferences.getString("theme", null) != null)
             sharedPreferences.edit().putString("theme", "fuck").commit();
 
+        String language ;
+        if((language = PreferenceManager.getDefaultSharedPreferences(this).getString("language", null)) == null) {
+            language = Locale.getDefault().getLanguage();
+        }
+        Locale locale = new Locale(language);
+        locale.setDefault(locale);
+        Configuration conf = new Configuration();
+        conf.locale = locale;
+        getResources().updateConfiguration(conf, getResources().getDisplayMetrics());
 
        // getFragmentManager().beginTransaction().add(android.R.id.content, new PreferenceFragmentTest.PreferenceFragment0()).commit();
 
@@ -158,19 +167,6 @@ public class MainActivity extends AppCompatActivity {
                     addPreferencesFromResource(preferences[position]);
 
 
-
-                    String language ;
-                    if((language = getPreferenceManager().getSharedPreferences().getString("language", null)) == null) {
-                        language = Locale.getDefault().getLanguage();
-                    }
-                        Locale locale = new Locale(language);
-                        locale.setDefault(locale);
-                        Configuration conf = new Configuration();
-                        conf.locale = locale;
-                        getResources().updateConfiguration(conf, getResources().getDisplayMetrics());
-
-
-
                   /*  String theme = null;
                     if((theme = getPreferenceManager().getSharedPreferences().getString("theme", null)) == null){
                         theme = getTheme().toString();
@@ -215,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
 
                         switch (key) {
                             case "language":
-                                Snackbar.make(getView(), "Language is set to " + sharedPreferences.getString(key, ""), Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                                //Snackbar.make(getView(), "Language is set to " + sharedPreferences.getString(key, ""), Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                                 getActivity().finish();
                                 Intent intent = new Intent(getActivity(), getActivity().getClass());
                                 startActivity(intent);
