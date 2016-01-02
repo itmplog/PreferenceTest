@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 <PreferenceCategory
-    android:title="@string/wireless_network"
-    android:key="@string/wireless_network">
+    android:title="@string/wireless_network">
 
     <Preference
         android:title="Wifi"
@@ -15,8 +14,7 @@
     </Preference>
 </PreferenceCategory>
     <PreferenceCategory
-        android:title="@string/language"
-        android:summary="@string/language_set">
+        android:title="@string/language">
         <ListPreference
             android:title="@string/language"
             android:summary="@string/language_set"
