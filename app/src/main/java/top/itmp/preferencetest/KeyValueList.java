@@ -1,6 +1,5 @@
 package top.itmp.preferencetest;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,7 +10,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -22,8 +20,8 @@ public class KeyValueList extends AppCompatActivity {
 
     private RecyclerView mRecyclerView = null;
     private RecyclerView.Adapter mAdapter = null;
-    String[] keys = new String[20];
-    private  static String[] values = new String[20];
+    private static String[] keys;
+    private  static String[] values;
 
 
     @Override
@@ -36,7 +34,8 @@ public class KeyValueList extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         Map<String, ?> map = PreferenceManager.getDefaultSharedPreferences(this).getAll();
-
+        keys = new String[map.size()];
+        values = new String[map.size()];
         int i = 0;
         for(Map.Entry<String,?> entry : map.entrySet()){
             keys[i] = entry.getKey();
@@ -96,19 +95,22 @@ public class KeyValueList extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Log.v("values", values[position] + "");
-                    AlertDialog.Builder builder = new AlertDialog.Builder(ct);
-                    builder.setMessage(values[position])
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    // FIRE ZE MISSILES!
-                                }
-                            })
-                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    // User cancelled the dialog
-                                }
-                            });
-                        builder.create();
+                    if (values[position] != null) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ct);
+                        builder.setTitle(keys[position])
+                                .setMessage(values[position])
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        // FIRE ZE MISSILES!
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        // User cancelled the dialog
+                                    }
+                                }).create().show();
+
+                    }
                 }
             });
 
@@ -120,7 +122,5 @@ public class KeyValueList extends AppCompatActivity {
             return mDataset.length;
         }
     }
-
-
 
 }
