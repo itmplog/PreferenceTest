@@ -67,5 +67,6 @@
     <string name="menu0">Page One</string>
     <string name="menu1">Page Two</string>
     <string name="menu2">Page Three</string>
+    <string name="menu3">Page Four</string>
     <string name="True">True</string>
 </resources>

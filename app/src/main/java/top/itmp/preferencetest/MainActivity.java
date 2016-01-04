@@ -127,7 +127,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.three:
                 viewPager.setCurrentItem(2);
                 break;
-
+            case R.id.four:
+                viewPager.setCurrentItem(3);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
