@@ -1,18 +1,27 @@
 package top.itmp.preferencetest;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 import java.util.Locale;
@@ -40,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setAdapter(fragmentPagerAdapter);
         viewPager.setOffscreenPageLimit(3);
+
 
         SharedPreferences sharedPreferences = getPreferences(MODE_WORLD_READABLE);//PreferenceManager.getDefaultSharedPreferences(this);
         if(sharedPreferences.getString("theme", null) != null)
@@ -156,15 +166,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public PreferenceFragment getItem(final int position) {
+        public Fragment getItem(final int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             // return PlaceholderFragment.newInstance(position + 1);
-            return new PreferenceFragment() {
-                @Override
-                public void onCreate(Bundle savedInstanceState) {
-                    super.onCreate(savedInstanceState);
-                    addPreferencesFromResource(preferences[position]);
+            switch (position) {
+                case 0:
+                case 1:
+                case 2:
+                return new PreferenceFragment() {
+                    @Override
+                    public void onCreate(Bundle savedInstanceState) {
+                        super.onCreate(savedInstanceState);
+                        addPreferencesFromResource(preferences[position]);
 
 
                   /*  String theme = null;
@@ -189,63 +203,116 @@ public class MainActivity extends AppCompatActivity {
 */
 
 
-                }
-
-                @Override
-                public void onPause() {
-                    getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-                    super.onPause();
-                }
-
-                @Override
-                public void onResume() {
-                    super.onResume();
-                    getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-                }
-
-
-                SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-                    @Override
-                    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                        // Toast.makeText(getApplicationContext(), key + "  " + sharedPreferences.getString(key, "") ,Toast.LENGTH_SHORT ).show();
-
-                        switch (key) {
-                            case "language":
-                                //Snackbar.make(getView(), "Language is set to " + sharedPreferences.getString(key, ""), Snackbar.LENGTH_SHORT).setAction("Action", null).show();
-                                getActivity().finish();
-                                Intent intent = new Intent(getActivity(), getActivity().getClass());
-                                startActivity(intent);
-                                break;
-                            case "theme":
-                                getActivity().finish();
-                                Intent intent1 = new Intent(getActivity(), getActivity().getClass());
-                                startActivity(intent1);
-                                break;
-                            default:
-                                break;
-                        }
                     }
+
+                    @Override
+                    public void onPause() {
+                        getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+                        super.onPause();
+                    }
+
+                    @Override
+                    public void onResume() {
+                        super.onResume();
+                        getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+                    }
+
+
+                    SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+                        @Override
+                        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                            // Toast.makeText(getApplicationContext(), key + "  " + sharedPreferences.getString(key, "") ,Toast.LENGTH_SHORT ).show();
+
+                            switch (key) {
+                                case "language":
+                                    //Snackbar.make(getView(), "Language is set to " + sharedPreferences.getString(key, ""), Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                                    getActivity().finish();
+                                    Intent intent = new Intent(getActivity(), getActivity().getClass());
+                                    startActivity(intent);
+                                    break;
+                                case "theme":
+                                    getActivity().finish();
+                                    Intent intent1 = new Intent(getActivity(), getActivity().getClass());
+                                    startActivity(intent1);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    };
                 };
-            };
+
+                default:  // case 3:
+                    return new Fragment(){
+                        @Override
+                        public void onCreate(Bundle savedInstanceState) {
+                            super.onCreate(savedInstanceState);
+                        }
+
+                        @Nullable
+                        @Override
+                        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+                            TextView textView = new TextView(getActivity());
+                            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                                    ViewGroup.LayoutParams.WRAP_CONTENT);
+                            textView.setLayoutParams(layoutParams);
+                            textView.setText("Hello world!!");
+                            //textView.setBackground(new ColorDrawable(Color.parseColor("#FF00ccaa")));
+                            return textView;
+                            //return super.onCreateView(inflater, container, savedInstanceState);
+                        }
+                    };
+            }
         }
 
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 4;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return getString(R.string.app_name);
                 case 1:
-                    return "SECTION 2";
+                    return "Settings";
                 case 2:
-                    return "SECTION 3";
+                    return "Fragments";
+                case 3:
+                    return "Key Values";
             }
             return null;
         }
+    }
+
+    ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            getSupportActionBar().setTitle(fragmentPagerAdapter.getPageTitle(position));
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    };
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        viewPager.removeOnPageChangeListener(onPageChangeListener);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewPager.addOnPageChangeListener(onPageChangeListener);
     }
 }

@@ -1,11 +1,10 @@
 package top.itmp.preferencetest;
 
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.support.v4.app.NavUtils;
 
 
-import top.itmp.preferencetest.R;
+//import top.itmp.preferencetest.R;
 
 /**
  * Created by hz on 2015/12/14.
